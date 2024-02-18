@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Transcribe and Generate Text</title>
+</head>
+<body>
+    <h1>Transcribe Audio</h1>
+    <form method="POST" enctype="multipart/form-data" onsubmit="recordTranscriptionStartTime()">
+        <input type="file" name="file">
+        <input type="submit" value="Transcribe">
+        <input type="hidden" name="transcription_start_time" id="transcription_start_time" value="">
+    </form>
+    
+    {% if transcribed_text %}
+    <h2>Transcribed Text:</h2>
+    <p>{{ transcribed_text }}</p>
+    <p id="transcription_time"></p>
+    {% endif %}
+
+    <h1>Generate Text</h1>
+    <form action="/" method="post">
+        <label for="input_text">Enter a Prompt:</label><br>
+        <textarea name="input_text" id="input_text" rows="5" cols="50"></textarea><br><br>
+        <input type="submit" value="Generate">
+    </form>
+
+    {% if generated_text %}
+    <h2>Generated Text:</h2>
+    <div id="generated_text"></div>
+    <p id="generation_time"></p>
+
+    <script>
+        // Get the generated text and generation time from the server-side code
+        var generatedText = {{ generated_text|tojson }};
+        var generationTime = {{ generated_time }};
+
+        // Function to display the words and generation time sequentially
+        function displayWordsAndTime(words, time) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i >= words.length) {
+                    clearInterval(interval);
+                    document.getElementById('generation_time').innerHTML = 'Generation Time: ' + time.toFixed(2) + ' seconds';
+                } else {
+                    document.getElementById('generated_text').innerHTML += words[i] + ' ';
+                    i++;
+                }
+            }, 100);
+        }
+
+        // Start displaying the generated text and generation time
+        displayWordsAndTime(generatedText, generationTime);
+    </script>
+    {% endif %}
+
+    <script>
+        // JavaScript function to record the start time when the transcription form is submitted
+        function recordTranscriptionStartTime() {
+            document.getElementById('transcription_start_time').value = new Date().getTime();
+        }
+    </script>
+
+    {% if transcription_time %}
+        <script>
+            // Get the transcription time from the server-side code
+            var transcriptionTime = {{ transcription_time }};
+        
+            // Display the transcription time
+            document.getElementById('transcription_time').innerHTML = 'Transcription Time: ' + transcriptionTime.toFixed(2) + ' seconds';
+        </script>
+    {% endif %}
+</body>
+</html>
+
