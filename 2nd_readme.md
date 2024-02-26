@@ -108,8 +108,6 @@ Here's the combined Pepper configuration section with the steps for integrating 
    g. **Handle Errors**:
       Implement error-handling mechanisms in case of connection issues, timeouts, or other potential problems when communicating with the web server via Paramiko.
 
-5. **Ensure Compatibility**: Verify that the Pepper configuration is compatible with Python 2, as some Pepper SDKs may require Python 2 compatibility.
-
 Pepper's configuration for interaction with the web server is managed by `pepper_python2_code.py`, a Python 2 compatible file. Ensure this file is located in the same folder as Pepper's SDK for proper execution.
 
 
