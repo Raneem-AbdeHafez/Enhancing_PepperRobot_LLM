@@ -73,7 +73,23 @@ These commands will install the necessary dependencies and ensure that the speci
 
 ## Pepper Configuration (Python 2)
 
+To configure Pepper for seamless interaction with the server, ensure you have all the required Pepper dependencies, such as NAOqi. Follow these steps:
+
+1. **Install NAOqi SDK**: Download and install the NAOqi SDK provided by SoftBank Robotics. Ensure that the SDK version is compatible with your Pepper robot.
+
+2. **Set Up Connection**: Establish a connection to Pepper's robot by specifying the IP address and port number. Use the appropriate connection method supported by the NAOqi SDK.
+
+3. **Load Necessary Modules**: Load the necessary NAOqi modules for speech recognition, audio recording, and text-to-speech functionalities. These modules are essential for Pepper's communication capabilities.
+
+4. **Integrate Web Server Interaction**: Incorporate functionality within Pepper's code to interact with the web server. This includes sending user prompts or recorded audio to the server for text generation and receiving generated responses.
+
+5. **Handle Responses**: Implement logic to handle the responses received from the web server. This may involve displaying the generated text on Pepper's tablet, speaking the text using Pepper's text-to-speech capabilities, or taking further actions based on the generated response.
+
+6. **Ensure Compatibility**: Verify that the Pepper configuration is compatible with Python 2, as some Pepper SDKs may require Python 2 compatibility.
+
 Pepper's configuration for interaction with the web server is managed by `pepper_python2_code.py`, a Python 2 compatible file. Ensure this file is located in the same folder as Pepper's SDK for proper execution.
+
+By following these steps, you can configure Pepper to effectively communicate with the web server and utilize the generated text and speech recognition for interactive interactions with users.
 
 ## Evaluation
 
