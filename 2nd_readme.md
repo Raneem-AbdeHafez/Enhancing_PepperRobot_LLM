@@ -27,7 +27,9 @@ To set up and run the web server application, follow these steps:
    ```
    
    ```bash
-   pip install gpt4all flask==2.0.1 openai-whisper openai
+   pip install gpt4all
+   pip install flask==2.0.1
+   pip install -U openai-whisper pip install openai
    ```
    
    ```bash
