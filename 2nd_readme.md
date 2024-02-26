@@ -1,8 +1,4 @@
-Thank you for providing the setup steps. Let's incorporate them into the README file:
-
----
-
-# Pepper Language Model Integration
+# Pepper Language Model and ASR Integration
 
 This README file provides an overview of the methodology involving the integration of Language Models (LLMs) into Pepper's architecture, alongside Automatic Speech Recognition (ASR) for accurate speech recognition. Through the utilization of ASR and evaluation of various LLMs, Pepper demonstrates commendable transcription capabilities and generates responses that are deemed sufficiently human-like for users to understand and engage with. Evaluation of the implemented models reveals notable differences in speed, with some models exhibiting faster response times than others.
 
@@ -21,7 +17,7 @@ To set up and run the web server application, follow these steps:
 1. Clone the repository or download the source code files.
 2. Install the required dependencies:
    ```bash
-   pip install flask transformers torch gpt4all flask==2.0.1 openai-whisper openai transformers flash-attn packaging ninja accelerate optimum
+   pip install flask==2.0.1 transformers==4.29.0.dev0 torch==2.0.1
    ```
    Versions Used:
    ```bash
@@ -29,6 +25,41 @@ To set up and run the web server application, follow these steps:
    Transformers: 4.29.0.dev0
    Torch: 2.0.1
    ```
+   
+   ```bash
+   pip install gpt4all flask==2.0.1 openai-whisper openai
+   ```
+   
+   ```bash
+   sudo apt-get update
+   sudo apt-get install ffmpeg
+   pip install transformers --upgrade
+   ```
+   
+   For Flash Attention:
+   ```bash
+   git clone https://github.com/Dao-AILab/flash-attention
+   cd flash-attention
+   pip install -r requirements.txt
+   ```
+   
+   ```bash
+   pip install packaging ninja
+   pip uninstall -y ninja && pip install ninja
+   ```
+   
+   ```bash
+   sudo apt-get install git
+   pip install flash-attn --no-build-isolation
+   ```
+   
+   ```bash
+   pip install --upgrade pip
+   pip install --upgrade transformers accelerate optimum
+   ```
+
+These commands will install the necessary dependencies and ensure that the specified versions of Flask, Transformers, and Torch are used. Additionally, it updates packages and installs required system dependencies like ffmpeg. Finally, it upgrades pip and installs additional packages required for optimization.
+
 3. Make sure you have a compatible version of Python (3.6 or higher) installed.
 4. Obtain the required pre-trained language model from the Hugging Face model hub. The model name used in the code is "gpt4all-falcon-q4_0.gguf". You can replace this with another model if desired.
 5. Make sure you have an internet connection for downloading the model and any additional packages required.
