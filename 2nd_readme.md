@@ -1,4 +1,4 @@
-# SAMK AI LAB Webserver with Language Model Integration
+# Pepper with Language Model and ASR Integration
 
 This readme file provides an overview and instructions for setting up and running the webserver application that utilizes a Language Model (LLM) to generate text based on user prompts. The application is built using Flask framework and integrates with the Hugging Face Transformers library for natural language processing tasks.
 
