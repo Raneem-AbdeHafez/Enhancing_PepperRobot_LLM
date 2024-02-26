@@ -74,6 +74,7 @@ These commands will install the necessary dependencies and ensure that the speci
 ## Pepper Configuration (Python 2)
 
 To configure Pepper for seamless interaction with the server, ensure you have all the required Pepper dependencies, such as NAOqi. Follow these steps:
+Here's the combined Pepper configuration section with the steps for integrating web server interaction and setting up Paramiko:
 
 1. **Install NAOqi SDK**: Download and install the NAOqi SDK provided by SoftBank Robotics. Ensure that the SDK version is compatible with your Pepper robot.
 
@@ -81,15 +82,36 @@ To configure Pepper for seamless interaction with the server, ensure you have al
 
 3. **Load Necessary Modules**: Load the necessary NAOqi modules for speech recognition, audio recording, and text-to-speech functionalities. These modules are essential for Pepper's communication capabilities.
 
-4. **Integrate Web Server Interaction**: Incorporate functionality within Pepper's code to interact with the web server. This includes sending user prompts or recorded audio to the server for text generation and receiving generated responses.
+4. **Integrate Web Server Interaction with Paramiko**:
 
-5. **Handle Responses**: Implement logic to handle the responses received from the web server. This may involve displaying the generated text on Pepper's tablet, speaking the text using Pepper's text-to-speech capabilities, or taking further actions based on the generated response.
+   a. **Ensure Necessary Pepper Dependencies**:
+      Make sure Pepper's dependencies, such as NAOqi, are installed and configured correctly.
 
-6. **Ensure Compatibility**: Verify that the Pepper configuration is compatible with Python 2, as some Pepper SDKs may require Python 2 compatibility.
+   b. **Install Paramiko**:
+      Install Paramiko in your Python environment. You can install it using pip:
+      ```bash
+      pip install paramiko
+      ```
+
+   c. **Set Up SSH Connection**:
+      Use Paramiko to establish an SSH connection from Pepper's code to the web server. Provide the IP address, port number, username, and password (or SSH key) of the server.
+
+   d. **Send Requests**:
+      Once the SSH connection is established, send requests to the web server using Paramiko's SSH client. These requests may include user prompts or recorded audio data for processing by the server.
+
+   e. **Receive Responses**:
+      After sending a request, wait for the response from the web server. Paramiko provides methods to receive data from the server once it's available. This response will typically contain the generated text or any other relevant information.
+
+   f. **Process Responses**:
+      Once the response is received, process it as needed within Pepper's code. This may involve displaying the generated text, speaking it aloud using Pepper's text-to-speech capabilities, or taking other actions based on the response.
+
+   g. **Handle Errors**:
+      Implement error-handling mechanisms in case of connection issues, timeouts, or other potential problems when communicating with the web server via Paramiko.
+
+5. **Ensure Compatibility**: Verify that the Pepper configuration is compatible with Python 2, as some Pepper SDKs may require Python 2 compatibility.
 
 Pepper's configuration for interaction with the web server is managed by `pepper_python2_code.py`, a Python 2 compatible file. Ensure this file is located in the same folder as Pepper's SDK for proper execution.
 
-By following these steps, you can configure Pepper to effectively communicate with the web server and utilize the generated text and speech recognition for interactive interactions with users.
 
 ## Evaluation
 
