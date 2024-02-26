@@ -1,6 +1,6 @@
-# SAMK AI LAB Webserver LLModel
+# SAMK AI LAB Webserver with Language Model Integration
 
-This readme file provides an overview and instructions for using the webserver application that utilizes a Language Model (LLM) to generate text based on user prompts. The application is built using Flask framework and integrates with the Hugging Face Transformers library for natural language processing tasks.
+This readme file provides an overview and instructions for setting up and running the webserver application that utilizes a Language Model (LLM) to generate text based on user prompts. The application is built using Flask framework and integrates with the Hugging Face Transformers library for natural language processing tasks.
 
 ## Installation and Setup
 
@@ -22,7 +22,7 @@ To set up and run the webserver application, follow these steps:
 5. Make sure you have an internet connection for downloading the model and any additional packages required.
 6. Run the following command to start the webserver:
     ```bash
-    python app7b.py
+    python webserver_Flask_Code.py
     ```
    Please note that it might take around 10 seconds for the webserver to start initially as it loads the language model checkpoints. Subsequent requests will not have this delay.
 
@@ -40,26 +40,6 @@ The application provides two main ways to interact with the webserver:
 
 Please note that the text generation on the web interface is done using JavaScript in conjunction with server-side code. This allows for a smoother and more interactive token-by-token display of the generated text. The JavaScript code retrieves the generated text from the server-side code and sequentially displays the tokens on the webpage.
 
-## Webserver Implementation with Distil Whisper and GPT4ALL Integration
-
-The webserver application utilizes Flask to handle requests and integrates the Distil Whisper model from Hugging Face along with GPT4ALL for text generation based on user prompts. Below is an overview of the implementation:
-
-The application defines a route accessible via both GET and POST requests at the root ("/") URL. 
-
-In the POST section of the code:
-- It checks for input text, uploaded files, or JSON data in the request.
-- If input text is provided, the server generates additional text based on the input using GPT4ALL.
-- If an audio file is uploaded, the server transcribes the audio content using a pre-trained speech recognition model from Distil Whisper, processes the text, generates additional text based on the input, and records relevant information.
-- The generated text, along with associated metadata such as model used, input text, generation time, and timestamp, is stored in a list called `generated_texts`. This information is then saved to a JSON file for persistence.
-
-In the GET section of the code:
-- It renders an HTML template (`index-whis.html`) to display the user interface.
-- If accessed via a GET request, it returns the HTML template to the client for rendering.
-
-This implementation enables users to interact with the webserver through a web interface or programmatically, triggering text generation based on their input prompts. The integration of Distil Whisper for speech recognition and GPT4ALL for text generation enhances the capabilities of the webserver, enabling more versatile and responsive interactions with users.
-
-Please ensure that you have the necessary dependencies installed and configured to run the webserver successfully, as described in the installation and setup instructions provided earlier in this README.
-
 ## Parameter Tuning and Text Generation Time
 
 The webserver application allows for parameter tuning to control the text generation process. Specifically, the `top_k` and `max_length` parameters can be adjusted to influence the generated text and the time it takes to generate it.
@@ -76,7 +56,7 @@ Feel free to experiment with different parameter values based on your requiremen
 
 The webserver application consists of the following files:
 
-- `app7b.py`: This is the main Flask application file that handles web requests and integrates with the language model.
+- `webserver_Flask_Code.py`: This is the main Flask application file that handles web requests and integrates with the language model.
 - `index7b.html`: This HTML template file defines the structure and layout of the web interface.
 - `generated_texts.json`: This JSON file stores the generated texts along with relevant metadata, such as the model name, input prompt, and generation timestamp.
 
@@ -84,14 +64,9 @@ The webserver application consists of the following files:
 
 If you wish to customize the application, you can modify the following aspects:
 
-- **Model Selection**: To use a different language model, change the `model_name` variable in `app7b.py` to the desired model name.
-- **Generation Parameters**: Adjust the generation parameters in the `generate_text` function to control the length and quality of the generated text. Parameters such as `max_length`, `do_sample`, `top_k`, and `num_return_sequences` can be modified based on your requirements.
-
-Please note that the generation times mentioned in the CSV file are approximate and may vary depending on the system's hardware specifications, network conditions, and other environmental factors.
-
-## Data Persistence
-
-The generated texts are stored in the `generated_texts.json` file, which allows for persistent storage across application restarts. The `load_generated_texts` and `save_generated_texts` functions handle the loading and saving of generated texts from and to the file, respectively. This ensures that previously generated texts are not lost when the application restarts.
+- **Model Selection**: To use a different language model, change the `model_name` variable in `webserver_Flask_Code.py` to the desired model name from the Hugging Face model hub.
+- **User Interface**: You can update the HTML template (`index7b.html`) to change the appearance and layout of the web interface.
+- **Functionality**: Extend the functionality of the application by adding new routes, integrating additional models, or implementing new features as needed.
 
 ## License
 
@@ -101,4 +76,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Hugging Face for providing access to the Transformers library and pre-trained language models.
 - The Python and Flask communities for their valuable contributions to open-source software development.
-
