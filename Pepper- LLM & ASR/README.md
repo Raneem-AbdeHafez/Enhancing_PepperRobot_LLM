@@ -1,4 +1,4 @@
-# SAMK AI LAB Webserver LLModel: Falcon- 7b
+# SAMK AI LAB Webserver LLModel
 
 
 This readme file provides an overview and instructions for using the webserver application that utilizes a Language Model (LLM) to generate text based on user prompts. The application is built using Flask framework and integrates with the Hugging Face Transformers library for natural language processing tasks.
