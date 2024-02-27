@@ -140,7 +140,6 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=port_num)
 
 
-
 """
 This code defines a route in a web application using Flask. The route is accessed via both GET and POST requests to the root ("/") URL. 
 
