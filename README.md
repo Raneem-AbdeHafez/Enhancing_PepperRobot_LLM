@@ -110,6 +110,28 @@ Here's the combined Pepper configuration section with the steps for integrating 
 
 Pepper's configuration for interaction with the web server is managed by `pepper_python2_code.py`, a Python 2 compatible file. Ensure this file is located in the same folder as Pepper's SDK for proper execution.
 
+### Usage
+
+To run the entire program, follow these steps:
+
+1. **Start the Web Server**:
+   - Ensure that the web server application, `webserver_Flask_Code.py`, is running.
+   - Navigate to the directory containing `webserver_Flask_Code.py` in your terminal or command prompt.
+   - Run the following command to start the web server:
+     ```bash
+     python webserver_Flask_Code.py
+     ```
+   - Keep the web server running throughout the interaction with Pepper.
+
+2. **Run the Pepper Python 2 Code**:
+   - Once the web server is running, you can execute the Pepper interaction code, `pepper_python2_code.py`.
+   - Ensure that Pepper's dependencies, such as NAOqi, are properly installed and configured.
+   - Run the `pepper_python2_code.py` script on Pepper's platform. This script will establish a connection with the web server and interact with it to generate text based on user prompts or recorded audio.
+   - Follow any additional instructions prompted by the Pepper Python 2 code to initiate interactions.
+
+By following these steps, you can successfully run the entire program, enabling communication between the web server and Pepper for text generation, speech recognition, and interaction.
+
+Remember to keep the web server running while interacting with Pepper to ensure seamless communication and functionality.
 
 ## Evaluation
 
