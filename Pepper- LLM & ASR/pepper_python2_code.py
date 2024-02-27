@@ -1,4 +1,3 @@
-
 # Finally WORKS, it first detects a face and then start the input text dialoge, saves once in the json file 
 
 import qi
