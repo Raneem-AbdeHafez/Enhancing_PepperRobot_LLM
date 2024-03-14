@@ -2,6 +2,8 @@
 
 This README file provides an overview of the methodology involving the integration of Language Models (LLMs) into Pepper's architecture, alongside Automatic Speech Recognition (ASR) for accurate speech recognition. Through the utilization of ASR and evaluation of various LLMs, Pepper demonstrates commendable transcription capabilities and generates responses that are deemed sufficiently human-like for users to understand and engage with. Evaluation of the implemented models reveals notable differences in speed, with some models exhibiting faster response times than others.
 
+#### Link to paper: https://urn.fi/URN:NBN:fi:amk-202402273525
+
 ## Methodology Overview
 
 The integration methodology consists of two primary phases:
